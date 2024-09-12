@@ -17,6 +17,10 @@ body {
 	font-family: Arial, Helvetica, sans-serif;
 }
 
+h2 {
+	color: hsl(var(--clr-accent));
+}
+
 button {
 	cursor: pointer;
 	outline: none;
@@ -30,6 +34,27 @@ button {
 	max-width: 70ch;
 	padding: 1rem;
 	margin-inline: auto;
+}
+
+nav {
+	padding: 1rem;
+	display: flex;
+	justify-content: flex-end;
+	max-width: 90em;
+}
+
+.btn--add {
+	background-color: hsl(var(--clr-accent) / 0.75);
+}
+.btn--add:hover {
+	background-color: hsl(var(--clr-accent));
+}
+.btn--back {
+	background-color: hsl(var(--clr-secondary) / 0.75);
+	color: hsl(var(--clr-text));
+}
+.btn--back:hover {
+	background-color: hsl(var(--clr-secondary));
 }
 
 .message-list {
@@ -55,6 +80,7 @@ button {
 .message__username {
 	font-size: 1.25rem;
 	font-weight: bold;
+	color: hsl(var(--clr-accent));
 }
 .message__date {
 	font-size: 0.8rem;
