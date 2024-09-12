@@ -20,7 +20,12 @@ app.get('/new', (req, res) => {
 
 app.post('/new', async (req, res) => {
 	const { username, message } = req.body;
-	await pool.query(queries.insertMessage, [username, message, new Date()]);
+	const date = new Date();
+	await pool.query(queries.insertMessage, [
+		username,
+		message,
+		date.toDateString(),
+	]);
 	res.redirect('/');
 });
 
