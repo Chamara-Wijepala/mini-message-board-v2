@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+	<%- include('./partials/head.ejs') %>
+
+	<body>
+		<main>
+			<div class="container">
+				<h2>Post a new message</h2>
+				<form action="/new" method="POST">
+					<label for="username">Username:</label>
+					<input type="text" name="username" id="username" required />
+					<label for="message">Message:</label>
+					<input type="text" name="message" id="message" required />
+					<button type="submit">Post</button>
+				</form>
+			</div>
+		</main>
+	</body>
+</html>

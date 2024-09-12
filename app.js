@@ -24,4 +24,8 @@ app.get('/', (req, res) => {
 	res.render('index', { messages });
 });
 
+app.get('/new', (req, res) => {
+	res.render('form');
+});
+
 app.listen(PORT, () => console.log('Server running on port:', PORT));
