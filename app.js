@@ -2,30 +2,26 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
+const pool = require('./db/pool');
+const queries = require('./db/queries');
 
-// Temporary. Delete later
-const messages = [
-	{
-		text: 'Hi there!',
-		user: 'Amando',
-		added: new Date(),
-	},
-	{
-		text: 'Hello World!',
-		user: 'Charles',
-		added: new Date(),
-	},
-];
-
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
-app.get('/', (req, res) => {
-	res.render('index', { messages });
+app.get('/', async (req, res) => {
+	const { rows } = await pool.query(queries.getAllMessages);
+	res.render('index', { messages: rows });
 });
 
 app.get('/new', (req, res) => {
 	res.render('form');
+});
+
+app.post('/new', async (req, res) => {
+	const { username, message } = req.body;
+	await pool.query(queries.insertMessage, [username, message, new Date()]);
+	res.redirect('/');
 });
 
 app.listen(PORT, () => console.log('Server running on port:', PORT));
