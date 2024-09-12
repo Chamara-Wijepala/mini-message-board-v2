@@ -1,0 +1,53 @@
+:root {
+	--clr-text: 281 93% 94%;
+	--clr-background: 282 93% 5%;
+	--clr-primary: 284 93% 73%;
+	--clr-secondary: 346 93% 31%;
+	--clr-accent: 11 93% 58%;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	background-color: hsl(var(--clr-background));
+	color: hsl(var(--clr-text));
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+	max-width: 70ch;
+	padding: 1rem;
+	margin-inline: auto;
+}
+
+.message-list {
+	list-style-type: none;
+	display: flex;
+	flex-direction: column;
+	gap: 1.25rem;
+}
+
+.message {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	background-color: hsl(var(--clr-primary) / 0.1);
+	padding: 1rem;
+	border-radius: 16px;
+}
+.message__info {
+	display: flex;
+	gap: 0.5rem;
+	align-items: center;
+}
+.message__username {
+	font-size: 1.25rem;
+	font-weight: bold;
+}
+.message__date {
+	font-size: 0.8rem;
+	color: hsl(var(--clr-text) / 0.6);
+}
